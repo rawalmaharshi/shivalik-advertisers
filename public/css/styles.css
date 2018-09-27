@@ -1,14 +1,21 @@
+@font-face {
+    font-family: firaMono;
+    src: url('../fonts/FiraMono-Regular.ttf');
+}
+html {
+    font-family: firaMono;
+}
 .header-section{
-  padding-bottom: 51;
+    padding-bottom: 51;
 }
 #navbar{
-        background-color: #e66262;
-        color:#fff;
+    background-color: #e66262;
+    color:#fff;
 }
 .navbar-brand{
-  font-family: sans-serif;
-  text-transform: uppercase;
-  color: #ffe9e9 !important;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    color: #ffe9e9 !important;
 }
 .nav-item a {
     color: #ffe9e9 !important;
@@ -29,27 +36,92 @@
 .contact-container h1, h2, h3, p{
     width: 100%;
 }
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
 .footer-section{
-  background: #6f7f96;
-  position: static;
-  margin-top: auto;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
+    background: #6f7f96;
+    bottom: 0;
+    left: 0;
+    margin-top: 100px !important;
+    right: 0;
+    padding: 1rem;
+    position: relative;
 }
 .footer-headings{
-  font-size: 16px;
-  font-weight: bold;
-  padding-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 10px;
 }
 .footer-components{
-  font-size: 13;
-  display: block;
-  margin-bottom: 10px;
-  margin-top: 10px;
+    display: block;
+    font-size: 13;
+    margin: 10px 0px;
 }
 .icon{
-  font-size: 13;
-  display: inline;
+    display: inline;
+    font-size: 13;
+}
+.product-container {
+    margin: 20px auto;
+}
+.sidebar {
+    border-right: 1px solid #EDEBEF;
+    height: 500px;
+}
+@media (max-width: 800px) {
+    .sidebar {
+        display:none !important;
+    }
+}
+.category-heading {
+    font-weight: 600;
+    font-family: sans-serif;
+    list-style: none;
+    text-transform: uppercase;
+}
+.category {
+    list-style: none;
+}
+.category-item {
+    font-family: sans-serif;
+    font-weight: 300 !important;
+}
+.categoryButton {
+    font-size: 14px;
+    height: 35px !important;
+    text-transform: uppercase;
+    width: 100%;
+}
+.sidebar__section {
+    border-bottom: 1px solid #EDEBEF;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    /* z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px; */
+}
+.productDiv {
+  display: inline-block;
+  max-width: 24% !important;
+  text-align: center;
+}
+.product__img {
+  background-color: transparent;
+  border: 1px solid #d3d3d3;
+  display: block;
+  height: 240px;
+  opacity: 1;
+}
+.product__title {
+  font-family: sans-serif;
+  font-weight: 300 !important;
+  margin-top: -20px;
+}
+.product__code {
+  font-family: sans-serif;
+  font-weight: 500 !important;
+  text-transform: uppercase;
 }

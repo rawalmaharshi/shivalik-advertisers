@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{pageTitle}}</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+    {{> header}}
+    <div class="container product-container">
+        <div class="row">
+            <div class="col-sm-2 sidebar">
+                <div class="sidebar__section">
+                    <span class="category-heading">Categories</span>
+                    <ul class="category">
+                      <!-- <li class="sidebar__categories">
+                        <div class="custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="watchCat">
+                          <label class="custom-control-label category-item" for="watchCat">Watches</label>
+                        </div>
+                    </li> -->
+                      {{#each categories}}
+                      <li class="sidebar__categories"></li>
+                        <div class="custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" name="{{this._id}}" id="{{this._id}}">
+                          <label class="custom-control-label category-item" for="{{this._id}}">{{this._id}}<span style="margin-left: 5px">[{{this.noOfProducts}}]</span></label>
+                        </div>
+                      {{/each}}
+                    </ul>
+                    <span>
+                        <button type="button" class="btn btn-outline-secondary categoryButton">Apply Filter</button>
+                    </span>
+                </div>
+                <div class="sidebar__section">
+                    <span class="category-heading">Price</span>
+                    <ul class="category">
+                        <li class="sidebar__categories">
+                            <div class="custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="priceCat1">
+                              <label class="custom-control-label category-item" for="priceCat1">Less than Rs.100</label>
+                            </div>
+                        </li>
+                        <li class="sidebar__categories">
+                            <div class="custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="priceCat2">
+                              <label class="custom-control-label category-item" for="priceCat2">Rs.101 to Rs.250</label>
+                            </div>
+                        </li>
+                        <li class="sidebar__categories">
+                            <div class="custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="priceCat3">
+                              <label class="custom-control-label category-item" for="priceCat3">Rs.251 to Rs.500</label>
+                            </div>
+                        </li>
+                        <li class="sidebar__categories">
+                            <div class="custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="priceCat4">
+                              <label class="custom-control-label category-item" for="priceCat4">Rs. 500 to Rs. 1000</label>
+                            </div>
+                        </li>
+                        <li class="sidebar__categories">
+                            <div class="custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="priceCat5">
+                              <label class="custom-control-label category-item" for="priceCat5">More than Rs.1000</label>
+                            </div>
+                        </li>
+                    </ul>
+                    <span>
+                        <button type="button" class="btn btn-outline-secondary categoryButton">Apply Filter</button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-10 col-xs-12">
+              <!-- <div class="col-sm-3 col-xs-6 productDiv">
+                <img src="../public/img/1.jpg" class="product__img" alt="{{products.title}}">
+                <p class="product__code">{{products.prod_id}}</p>
+                <p class="product__title">{{products.title}}</p>
+              </div> -->
+              {{#each products}}
+                <div class="col-sm-3 col-xs-6 productDiv">
+                  <img src="../public{{this.img4_url}}" class="product__img" alt="{{this.title}}">
+                  <p class="product__code">{{this.prod_id}}</p>
+                  <p class="product__title">{{this.title}}</p>
+                </div>
+              {{/each}}
+
+            </div>
+        </div>
+    </div>
+    {{> footer}}
+</body>
+</html>
