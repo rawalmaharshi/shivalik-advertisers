@@ -11,6 +11,7 @@ const port = process.env.PORT;
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
+
 // hbs.registerHelper('categs', function(items, options) {
 //   var out = "<ul>";
 //
@@ -59,8 +60,8 @@ MongoClient.connect(process.env.PROD_MONGODB, { useNewUrlParser: true }, functio
 
       products.getCategories(function (categories) {
         products.getProducts(category, function (products) {
-          console.log(`Categories: ` + JSON.stringify(categories));
-          console.log(`Products: ` + JSON.stringify(products[0]));
+          // console.log(`Categories: ` + JSON.stringify(categories));
+          // console.log(`Products: ` + JSON.stringify(products));
 
           res.render('products.hbs', {
               pageTitle: 'Shivalik Advertisers | Products',
@@ -71,9 +72,17 @@ MongoClient.connect(process.env.PROD_MONGODB, { useNewUrlParser: true }, functio
       });
     });
 
-    app.get('/products/:category/:title', (req, res) => {
-      res.render('product_page.hbs', {
+    app.get('/products/:category/:prod_id', (req, res) => {
+      var product_id = req.params.prod_id;
+      var category = req.params.category;
+      console.log(product_id, category);
 
+      products.getProduct(product_id, function (product) {
+        console.log(product);
+        res.render('product_page.hbs', {
+          pageTitle: 'Shivalik Advertisers',
+          product: product
+        });
       });
     });
 

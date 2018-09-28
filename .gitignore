@@ -1,3 +1,4 @@
 node_modules/
 data/
 server/config/config.json
+views/product_page1.hbs

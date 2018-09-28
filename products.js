@@ -3,7 +3,6 @@ require('./server/config/config');
 const _ = require('lodash');
 const MongoClient = require('mongodb').MongoClient;
 
-
 function ProductsDAO (db) {
   "use strict";
 
@@ -89,6 +88,17 @@ function ProductsDAO (db) {
           callback(products);
         });
     }
+  }
+
+  this.getProduct = (prod_id, callback) => {
+    "use strict";
+    this.db.db().collection('products').findOne({ prod_id: prod_id }, function(err, doc) {
+            if (err) {
+                throw err;
+            }
+
+            callback(doc);
+        });
   }
 }
 

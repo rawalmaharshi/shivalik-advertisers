@@ -80,13 +80,14 @@
                 <p class="product__title">{{products.title}}</p>
               </div> -->
               {{#each products}}
-                <div class="col-sm-3 col-xs-6 productDiv">
-                  <img src="../public{{this.img4_url}}" class="product__img" alt="{{this.title}}">
-                  <p class="product__code">{{this.prod_id}}</p>
-                  <p class="product__title">{{this.title}}</p>
+                <div class="col-sm-3 col-xs-6 productsDiv">
+                  <a href="/products/{{this.category}}/{{this.prod_id}}">
+                  <img src="../public{{this.img4_url}}" class="products__img" alt="{{this.title}}">
+                  <p class="products__code">{{this.prod_id}}</p>
+                  <p class="products__title">{{this.title}}</p>
+                  </a>
                 </div>
               {{/each}}
-
             </div>
         </div>
     </div>
