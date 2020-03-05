@@ -29,14 +29,15 @@ function ProductsDAO (db) {
       docs.forEach(function(product) {
           // format category with product details and push into categories array
           var productCat = _.clone(category);
+          // console.log(productCat);
           productCat._id = product._id;
           productCat.noOfProducts = product.noOfProducts;
           total += product.noOfProducts;
           categories.push(productCat);
       });
-
       // now update the total for our all category
       categories[0].noOfProducts = total;
+      console.log(categories);
 
       // console.log('categories', categories);
       callback(categories);
@@ -46,7 +47,8 @@ function ProductsDAO (db) {
   this.getProducts = (category, callback) => {
     "use strict";
 
-    var category = category || 'All';
+    var category = category;
+    console.log(category);
     var products = [];
 
     var product = {
@@ -63,8 +65,8 @@ function ProductsDAO (db) {
     };
 
 
-  // account for edge case of category being all
-    if (category.toLowerCase() === 'all') {
+  // show all products if the category filter is empty
+    if (category.length == 0) {
       this.db.db().collection('products').find( {} ).sort({ _id: 1 }).toArray(function(err, docs) {
         if (err) {
             throw err;

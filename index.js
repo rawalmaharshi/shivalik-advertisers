@@ -12,16 +12,6 @@ var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
 
-// hbs.registerHelper('categs', function(items, options) {
-//   var out = "<ul>";
-//
-//   for(var i=0, l=items.length; i<l; i++) {
-//     out = out + "<li>" + options.fn(items[i]) + "</li>";
-//   }
-//
-//   return out + "</ul>";
-// });
-
 app.set('view engine', 'hbs');
 
 app.use(express.static(__dirname));
@@ -56,7 +46,7 @@ MongoClient.connect(process.env.PROD_MONGODB, { useNewUrlParser: true }, functio
 
     app.get('/products', (req, res) => {
 
-      var category = req.query.category ? req.query.category : "All";
+      var category = [];
 
       products.getCategories(function (categories) {
         products.getProducts(category, function (products) {
@@ -75,10 +65,10 @@ MongoClient.connect(process.env.PROD_MONGODB, { useNewUrlParser: true }, functio
     app.get('/products/:category/:prod_id', (req, res) => {
       var product_id = req.params.prod_id;
       var category = req.params.category;
-      console.log(product_id, category);
+      // console.log(product_id, category);
 
       products.getProduct(product_id, function (product) {
-        console.log(product);
+        // console.log(product);
         res.render('product_page.hbs', {
           pageTitle: 'Shivalik Advertisers',
           product: product

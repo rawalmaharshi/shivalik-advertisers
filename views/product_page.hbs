@@ -20,8 +20,13 @@
         </div>
         <div>
           <img src="../../public{{product.img4_url}}" class="product_page_img_subs" alt="{{product.title}}" id="img1">
-          <img src="../../public{{product.img5_url}}" class="product_page_img_subs" alt="{{product.title}}" id="img2">
-          <img src="../../public{{product.img6_url}}" class="product_page_img_subs" alt="{{product.title}}" id="img3">
+          {{#if product.img5_url}}
+            <img src="../../public{{product.img5_url}}" class="product_page_img_subs" alt="{{product.title}}" id="img2">
+          {{/if}}
+          
+          {{#if product.img6_url}}
+            <img src="../../public{{product.img6_url}}" class="product_page_img_subs" alt="{{product.title}}" id="img3">
+          {{/if}}
         </div>
       </div>
       <div class="col-sm-7 col-xs-12" id="prod_desc">
