@@ -20,7 +20,7 @@ function ProductsDAO (db) {
 
     categories.push(category);
 
-    this.db.db().collection('products').aggregate([ { $group: { _id: '$category', noOfProducts: { $sum: 1 } } }, { $sort: { _id: 1 } } ]).toArray(function(err, docs) {
+    this.db.db().collection('products1').aggregate([ { $group: { _id: '$category', noOfProducts: { $sum: 1 } } }, { $sort: { _id: 1 } } ]).toArray(function(err, docs) {
       if (err) {
           throw err;
       }
